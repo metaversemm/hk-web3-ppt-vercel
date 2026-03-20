@@ -500,8 +500,8 @@ body {
   }
   #slide-1 .title-huge { word-break: keep-all; overflow-wrap: break-word; }
 
-  /* --- Slide 19: tags wrap --- */
-  #slide-19 [style*="gap:20px"] {
+  /* --- Slide 24: tags wrap --- */
+  #slide-24 [style*="gap:20px"] {
     gap: 8px !important;
   }
 
@@ -568,7 +568,7 @@ body {
 <nav class="nav-dots" id="navDots"></nav>
 
 <!-- Page Indicator -->
-<div class="page-indicator" id="pageIndicator">1 / 19</div>
+<div class="page-indicator" id="pageIndicator">1 / 24</div>
 
 <!-- ============ SLIDE 1: COVER ============ -->
 <section class="slide slide-cover slide-bg slide-bg-strong" id="slide-1" data-title="封面" style="background-image:url('./assets/luxury-hk-golden.jpg');">
@@ -1118,8 +1118,201 @@ body {
   </div>
 </section>
 
-<!-- ============ SLIDE 17: 一句话 ============ -->
-<section class="slide slide-bg slide-bg-light" id="slide-17" data-title="一句话" style="background-image:url('./assets/luxury-hk-night.jpg');">
+<!-- ============ SLIDE 17: 出入金成本账 ============ -->
+<section class="slide" id="slide-17" data-title="出入金成本账">
+  <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(212,175,55,0.1),transparent);top:20%;right:20%"></div>
+  <div class="slide-inner">
+    <span class="tag animate-in">用户算账 ①</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      出入金成本账
+    </h2>
+    <p class="subtitle animate-in delay-2" style="margin-top:8px;">法币↔加密的隐性损耗，你真的算过吗？</p>
+    <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px;" class="animate-in delay-2">
+      <div class="glass-card" style="padding:20px 24px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+          <div>
+            <p class="body-text" style="font-size:13px;color:#7A6B5A;">传统OTC / 交易所出入金</p>
+            <p style="font-size:28px;font-weight:800;color:#C77D4A;margin-top:4px;">1.5% — 3%</p>
+          </div>
+          <div style="font-size:32px;color:rgba(212,175,55,0.3);">→</div>
+          <div>
+            <p class="body-text" style="font-size:13px;color:#D4AF37;">TunaPay 出入金</p>
+            <p style="font-size:28px;font-weight:800;color:#D4AF37;margin-top:4px;">< 1%</p>
+          </div>
+        </div>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">💸 银行电汇手续费 + 汇率价差 + 到账时间成本 = 你看不见的<span class="highlight">隐性损耗</span></p>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">📊 100万美金出入一次，传统渠道吃掉 <span style="color:#C77D4A;font-weight:700;">1.5万~3万美金</span></p>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">⚡ TunaPay链上直连 + 聚合流动性，把成本<span class="highlight">压到1%以内</span>，到账时间从T+3缩到分钟级</p>
+      </div>
+    </div>
+    <div class="gold-quote animate-in delay-3">
+      每一次出入金，都是一次被剪羊毛。降低这个成本，就是帮客户直接赚钱。
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 18: 持有成本账 ============ -->
+<section class="slide" id="slide-18" data-title="持有成本账">
+  <div class="bg-glow" style="width:400px;height:400px;background:radial-gradient(circle,rgba(199,125,74,0.1),transparent);bottom:15%;left:25%"></div>
+  <div class="slide-inner">
+    <span class="tag animate-in">用户算账 ②</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      持有成本账
+    </h2>
+    <p class="subtitle animate-in delay-2" style="margin-top:8px;">买了加密资产之后，"持有"本身就是成本</p>
+    <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;" class="animate-in delay-2">
+      <div class="glass-card" style="padding:24px;text-align:center;">
+        <div style="font-size:32px;margin-bottom:8px;">🏦</div>
+        <div style="font-size:14px;color:#E8C97A;font-weight:600;margin-bottom:6px;">交易所风险</div>
+        <p class="body-text" style="font-size:13px;">JPEX爆雷<span style="color:#C77D4A;font-weight:700;">16亿港币</span>蒸发，你的资产放哪里比赚多少更重要</p>
+      </div>
+      <div class="glass-card" style="padding:24px;text-align:center;">
+        <div style="font-size:32px;margin-bottom:8px;">🔑</div>
+        <div style="font-size:14px;color:#E8C97A;font-weight:600;margin-bottom:6px;">私钥管理</div>
+        <p class="body-text" style="font-size:13px;">自己管私钥怕丢，交给别人怕跑路——安全焦虑本身就是<span class="highlight">隐性成本</span></p>
+      </div>
+      <div class="glass-card" style="padding:24px;text-align:center;">
+        <div style="font-size:32px;margin-bottom:8px;">🧠</div>
+        <div style="font-size:14px;color:#E8C97A;font-weight:600;margin-bottom:6px;">心理成本</div>
+        <p class="body-text" style="font-size:13px;">24小时盯盘、行情焦虑、Sleep Quality下降——<span class="highlight">这些都是钱</span></p>
+      </div>
+    </div>
+    <div class="gold-quote animate-in delay-3">
+      高净值客户愿意为"确定性"付费——<span style="color:#E8C97A;">确定性溢价</span>才是真正的商业模型。<br>
+      帮他们"睡得着觉"，比帮他们多赚2%更值钱。
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 19: 收益真实性账 ============ -->
+<section class="slide" id="slide-19" data-title="收益真实性账">
+  <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(196,78,43,0.08),transparent);top:30%;left:40%"></div>
+  <div class="slide-inner">
+    <span class="tag animate-in">用户算账 ③</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      收益真实性账
+    </h2>
+    <p class="subtitle animate-in delay-2" style="margin-top:8px;">三问判断框架：别被高收益故事骗了</p>
+    <div style="margin-top:28px;display:flex;flex-direction:column;gap:16px;" class="animate-in delay-2">
+      <div class="glass-card" style="padding:24px;border-left:3px solid #D4AF37;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-size:28px;font-weight:900;color:#D4AF37;">①</span>
+          <div>
+            <p style="font-size:16px;color:#E8C97A;font-weight:600;">收益从哪来？</p>
+            <p class="body-text" style="font-size:13px;margin-top:4px;">是真实业务产生的利润，还是后进资金填前面的坑？</p>
+          </div>
+        </div>
+      </div>
+      <div class="glass-card" style="padding:24px;border-left:3px solid #E8C97A;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-size:28px;font-weight:900;color:#E8C97A;">②</span>
+          <div>
+            <p style="font-size:16px;color:#E8C97A;font-weight:600;">可持续吗？</p>
+            <p class="body-text" style="font-size:13px;margin-top:4px;">牛市能赚的熊市还能赚吗？去掉补贴还有利润吗？</p>
+          </div>
+        </div>
+      </div>
+      <div class="glass-card" style="padding:24px;border-left:3px solid #C77D4A;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-size:28px;font-weight:900;color:#C77D4A;">③</span>
+          <div>
+            <p style="font-size:16px;color:#E8C97A;font-weight:600;">风险匹配吗？</p>
+            <p class="body-text" style="font-size:13px;margin-top:4px;">收益20%但可能归零？还是收益8%但回撤可控？</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="glass-card animate-in delay-3" style="margin-top:20px;padding:18px 24px;border:1px solid rgba(196,78,43,0.3);">
+      <p class="body-text" style="font-size:14px;">⚠️ JPEX的教训：承诺高回报，实际是资金盘，爆雷<span style="color:#C77D4A;font-weight:700;">16亿港币</span>。三问全部不及格。</p>
+    </div>
+    <div class="gold-quote animate-in delay-4">
+      收益高不等于赚钱，活得久才是真本事。每一笔投资，先问这三个问题。
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 20: 合规税务账 ============ -->
+<section class="slide slide-bg" id="slide-20" data-title="合规税务账" style="background-image:url('./assets/luxury-office.jpg');">
+  <div class="bg-glow" style="width:400px;height:400px;background:radial-gradient(circle,rgba(212,175,55,0.1),transparent);top:20%;left:15%"></div>
+  <div class="slide-inner">
+    <span class="tag animate-in">用户算账 ④</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      合规税务账
+    </h2>
+    <p class="subtitle animate-in delay-2" style="margin-top:8px;">CRS全球大网已经铺好，你的台账准备好了吗？</p>
+    <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px;" class="animate-in delay-2">
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">🌐 <span class="highlight">CRS全球信息交换</span>——你在海外的加密资产，税务机关迟早看得到</p>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">🇭🇰 <span class="highlight">香港税务优势</span>——无资本利得税、属地征税，但前提是你有完整记录</p>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">📋 <span style="color:#E8C97A;font-weight:700;">台账 = 防弹衣</span>——每一笔交易有据可查，税务来了不怕查</p>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">🏔️ <span class="highlight">泰山科技建台账服务</span>——帮高净值客户自动生成合规台账，对接会计师和税务师</p>
+      </div>
+    </div>
+    <div class="gold-quote animate-in delay-3">
+      以前是"赚到钱再说"，现在是"先把账做清楚"。台账不是成本，是保险。
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 21: 机会成本账 ============ -->
+<section class="slide" id="slide-21" data-title="机会成本账">
+  <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(212,175,55,0.12),transparent);bottom:20%;right:20%"></div>
+  <div class="slide-inner">
+    <span class="tag animate-in">用户算账 ⑤</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      机会成本账
+    </h2>
+    <p class="subtitle animate-in delay-2" style="margin-top:8px;">时间也是成本，而且是最贵的那种</p>
+    <div class="glass-card animate-in delay-2" style="margin-top:28px;padding:32px;text-align:center;">
+      <div style="display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <p class="body-text" style="font-size:13px;color:#7A6B5A;">你的时薪</p>
+          <p style="font-size:32px;font-weight:900;color:#D4AF37;">¥500</p>
+        </div>
+        <div style="font-size:28px;color:rgba(212,175,55,0.3);">×</div>
+        <div style="text-align:center;">
+          <p class="body-text" style="font-size:13px;color:#7A6B5A;">每年盯盘时间</p>
+          <p style="font-size:32px;font-weight:900;color:#E8C97A;">730h</p>
+        </div>
+        <div style="font-size:28px;color:rgba(212,175,55,0.3);">=</div>
+        <div style="text-align:center;">
+          <p class="body-text" style="font-size:13px;color:#7A6B5A;">隐性损失</p>
+          <p style="font-size:32px;font-weight:900;color:#C77D4A;">¥36.5万</p>
+        </div>
+      </div>
+      <p class="body-text" style="font-size:13px;margin-top:16px;color:#7A6B5A;">每天2小时盯盘 × 365天 = 730小时 × 时薪500元</p>
+    </div>
+    <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px;" class="animate-in delay-3">
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">🧮 你花在研究行情、比较交易所、手动操作上的时间，<span class="highlight">全部是成本</span></p>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">💡 高净值客户的时间更值钱——用<span class="highlight">专业服务</span>替代自己盯盘，是更理性的选择</p>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">🤖 AI Agent + 专业团队 = 帮你7×24小时执行，你<span class="highlight">只做决策</span></p>
+      </div>
+    </div>
+    <div class="gold-quote animate-in delay-4">
+      省下来的时间去赚更多的钱、陪更重要的人——这才是真正的"算账思维"。
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 22: 一句话 ============ -->
+<section class="slide slide-bg slide-bg-light" id="slide-22" data-title="一句话" style="background-image:url('./assets/luxury-hk-night.jpg');">
   <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(212,175,55,0.1),transparent);top:30%;left:40%"></div>
   <div class="slide-inner" style="text-align:center;">
     <h2 class="title-huge animate-in" style="line-height:1.2;">
@@ -1136,8 +1329,8 @@ body {
   </div>
 </section>
 
-<!-- ============ SLIDE 18: 结尾 ============ -->
-<section class="slide slide-bg slide-bg-light" id="slide-18" data-title="结尾" style="background-image:url('./assets/luxury-hk-night.jpg');">
+<!-- ============ SLIDE 23: 结尾 ============ -->
+<section class="slide slide-bg slide-bg-light" id="slide-23" data-title="结尾" style="background-image:url('./assets/luxury-hk-night.jpg');">
   <div class="halo" style="top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.15;width:400px;height:400px;"></div>
   <div class="slide-inner" style="text-align:center;">
     <h2 class="title-huge animate-in">
@@ -1153,8 +1346,8 @@ body {
   </div>
 </section>
 
-<!-- ============ SLIDE 19: 谢谢 ============ -->
-<section class="slide slide-bg slide-bg-light" id="slide-19" data-title="谢谢" style="background-image:url('./assets/luxury-hk-golden.jpg');">
+<!-- ============ SLIDE 24: 谢谢 ============ -->
+<section class="slide slide-bg slide-bg-light" id="slide-24" data-title="谢谢" style="background-image:url('./assets/luxury-hk-golden.jpg');">
   <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(212,175,55,0.08),transparent);top:30%;left:40%"></div>
   <div class="slide-inner" style="text-align:center;">
     <h2 class="title-huge animate-in" style="font-size:clamp(56px,8vw,100px);">
