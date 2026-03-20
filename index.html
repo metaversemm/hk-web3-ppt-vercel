@@ -307,17 +307,246 @@ body {
 .delay-5 { animation-delay: 0.5s; }
 .delay-6 { animation-delay: 0.6s; }
 
-/* ========== RESPONSIVE ========== */
+/* ========== RESPONSIVE — TABLET & MOBILE ========== */
 @media (max-width: 768px) {
-  .slide { padding: 50px 28px; }
-  .split-container { grid-template-columns: 1fr; }
-  .cards-row { grid-template-columns: 1fr; }
-  .nav-dots { right: 12px; gap: 8px; }
-  .nav-dot { width: 7px; height: 7px; }
+  /* --- Scroll & Base --- */
+  html { scroll-snap-type: y proximity; }
+  body { cursor: auto; }
+
+  /* --- Slide System --- */
+  .slide {
+    padding: 40px 20px 60px;
+    min-height: 100vh;
+    height: auto;
+  }
+  .slide-inner { max-width: 100%; }
+
+  /* --- Typography Scaling --- */
+  .title-huge { font-size: clamp(32px, 9vw, 48px); line-height: 1.12; letter-spacing: -0.01em; }
+  .title-large { font-size: clamp(24px, 6.5vw, 36px); line-height: 1.18; }
+  .title-mid { font-size: clamp(20px, 5vw, 28px); line-height: 1.25; }
+  .subtitle { font-size: clamp(14px, 3.8vw, 17px); margin-top: 12px; line-height: 1.65; }
+  .body-text { font-size: clamp(13px, 3.5vw, 15px); line-height: 1.7; }
+  .small-text { font-size: clamp(10px, 2.5vw, 12px); }
+  .tag { font-size: 10px; padding: 3px 10px; letter-spacing: 2px; }
+
+  /* --- Background Overlays — Stronger on mobile for readability --- */
+  .slide-bg::before {
+    background: linear-gradient(180deg, rgba(13,11,8,0.72) 0%, rgba(13,11,8,0.82) 40%, rgba(13,11,8,0.93) 100%);
+  }
+  .slide-bg-strong::before {
+    background: linear-gradient(180deg, rgba(13,11,8,0.68) 0%, rgba(13,11,8,0.8) 40%, rgba(13,11,8,0.92) 100%);
+  }
+  .slide-bg-light::before {
+    background: linear-gradient(180deg, rgba(13,11,8,0.5) 0%, rgba(13,11,8,0.68) 50%, rgba(13,11,8,0.82) 100%);
+  }
+
+  /* --- Navigation --- */
+  .nav-dots { right: 8px; gap: 6px; }
+  .nav-dot {
+    width: 8px; height: 8px;
+    position: relative;
+  }
+  .nav-dot::after {
+    content: '';
+    position: absolute;
+    top: -18px; bottom: -18px; left: -18px; right: -18px;
+  }
   .nav-dot .tooltip { display: none; }
-  .slide-bottom { left: 24px; right: 24px; }
-  .cycle-diagram { flex-direction: column; }
-  .cycle-arrow { transform: rotate(90deg); }
+  .page-indicator {
+    bottom: 12px; font-size: 11px;
+    padding: 4px 12px;
+  }
+
+  /* --- Slide Bottom Bar --- */
+  .slide-bottom {
+    left: 20px; right: 20px; bottom: 20px;
+    flex-direction: column; gap: 8px; align-items: flex-start;
+  }
+
+  /* --- Glass Card --- */
+  .glass-card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  .glass-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* --- Split Layout --- */
+  .split-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .split-left, .split-right {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  /* --- Cards Row --- */
+  .cards-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  /* --- Gold Quote --- */
+  .gold-quote {
+    padding: 16px 18px;
+    font-size: clamp(13px, 3.5vw, 16px);
+    margin: 16px 0;
+    line-height: 1.65;
+  }
+
+  /* --- Slap Items (Slide 3) --- */
+  .slap-item {
+    padding: 10px 14px;
+    margin: 6px 0;
+  }
+  .slap-item .year { font-size: 12px; }
+  .slap-item .desc { font-size: 13px; line-height: 1.5; }
+
+  /* --- Bullet Items --- */
+  .bullet-item { padding: 8px 0; gap: 10px; }
+  .bullet-icon { font-size: 16px; }
+  .bullet-text { font-size: 13px; }
+
+  /* --- Timeline --- */
+  .timeline { padding-left: 18px; }
+  .timeline-item { padding: 10px 0 10px 14px; }
+  .timeline-item::before { left: -22px; top: 16px; width: 8px; height: 8px; }
+  .timeline-date { font-size: 12px; }
+  .timeline-text { font-size: 13px; }
+
+  /* --- Check Items (Slide 16) — Touch-friendly --- */
+  .check-item {
+    padding: 14px 16px;
+    margin: 6px 0;
+    gap: 12px;
+    min-height: 48px;
+  }
+  .check-item:hover { background: rgba(255,248,240,0.04); border-color: rgba(212,175,55,0.12); }
+  .check-item:active { background: rgba(212,175,55,0.06); border-color: rgba(212,175,55,0.3); }
+  .check-text { font-size: 13px; }
+
+  /* --- Cycle Diagram (Linear) --- */
+  .cycle-diagram {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+  .cycle-node {
+    min-width: auto;
+    padding: 14px 18px;
+  }
+  .cycle-arrow {
+    transform: rotate(90deg);
+    font-size: 20px;
+  }
+
+  /* --- Cycle Ring (Slide 14) — Vertical stack on mobile --- */
+  .cycle-ring {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-width: 100%;
+  }
+  .cycle-ring-node {
+    width: 100% !important;
+    padding: 14px 18px;
+    border-radius: 12px;
+  }
+  .cycle-ring-arrow {
+    text-align: center;
+    font-size: 20px;
+    padding: 4px 0;
+  }
+  .cycle-ring > *:nth-child(1) { order: 1; }
+  .cycle-ring > *:nth-child(2) { order: 2; }
+  .cycle-ring > *:nth-child(3) { order: 3; }
+  .cycle-ring > *:nth-child(4) { order: 4; }
+  .cycle-ring > *:nth-child(5) { order: 5; }
+  .cycle-ring > *:nth-child(6) { order: 6; }
+  .cycle-ring > *:nth-child(7) { order: 7; }
+  .cycle-ring > *:nth-child(8) { order: 8; }
+  .cycle-ring-arrow { display: block !important; }
+  .cycle-ring-arrow::after { content: '↓'; }
+  .cycle-ring-arrow { font-size: 0; }
+  .cycle-ring-arrow::after { font-size: 20px; }
+
+  /* --- Comparison (Slide 6) --- */
+  .compare-left, .compare-right { font-size: 12px; }
+
+  /* --- Force all inline 2-col grids to 1 col --- */
+  #slide-4 .cards-row { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* --- Decorative Elements — tone down on mobile --- */
+  .bg-glow { opacity: 0.15; filter: blur(80px); }
+  .halo { width: 300px; height: 300px; filter: blur(60px); opacity: 0.15; }
+  .fire-deco { width: 200px; height: 200px; filter: blur(40px); opacity: 0.15; }
+
+  /* --- Custom Cursor — hide on mobile --- */
+  .cursor, .cursor-dot, .cursor-trail { display: none !important; }
+
+  /* --- Slide 1 Cover: reduce spacing --- */
+  #slide-1 .slide-inner [style*="margin-top:48px"] {
+    margin-top: 24px !important;
+  }
+  #slide-1 .title-huge { word-break: keep-all; overflow-wrap: break-word; }
+
+  /* --- Slide 19: tags wrap --- */
+  #slide-19 [style*="gap:20px"] {
+    gap: 8px !important;
+  }
+
+  /* --- Perplexity Footer --- */
+  .pplx-footer { right: 12px; bottom: 4px; font-size: 9px; }
+
+  /* --- Performance --- */
+  .slide { will-change: auto; }
+}
+
+/* ========== RESPONSIVE — SMALL PHONES (≤480px) ========== */
+@media (max-width: 480px) {
+  .slide { padding: 32px 16px 56px; }
+
+  .title-huge { font-size: clamp(28px, 8.5vw, 38px); }
+  .title-large { font-size: clamp(22px, 6vw, 30px); }
+  .title-mid { font-size: clamp(18px, 4.8vw, 24px); }
+  .subtitle { font-size: clamp(13px, 3.5vw, 15px); }
+  .body-text { font-size: clamp(12.5px, 3.2vw, 14px); }
+
+  .glass-card { padding: 16px; }
+  .split-left, .split-right { padding: 16px; }
+  .gold-quote { padding: 14px 16px; font-size: 13px; }
+
+  .slap-item { padding: 8px 12px; margin: 5px 0; }
+  .slap-item .desc { font-size: 12.5px; }
+
+  .check-item { padding: 12px 14px; }
+  .check-text { font-size: 12.5px; }
+  .check-box { width: 22px; height: 22px; }
+
+  .cycle-ring-node { padding: 12px 14px; }
+  .crn-icon { font-size: 22px; }
+  .crn-title { font-size: 12.5px; }
+  .crn-desc { font-size: 11px; }
+
+  .timeline-text { font-size: 12px; }
+  .timeline-date { font-size: 11px; }
+
+  .tag { font-size: 9px; padding: 3px 8px; letter-spacing: 1.5px; }
+
+  .nav-dots { right: 6px; gap: 5px; }
+  .nav-dot { width: 6px; height: 6px; }
+
+  .page-indicator { font-size: 10px; padding: 3px 10px; bottom: 8px; }
 }
 
 /* ========== FOOTER ========== */
@@ -342,7 +571,7 @@ body {
 <div class="page-indicator" id="pageIndicator">1 / 19</div>
 
 <!-- ============ SLIDE 1: COVER ============ -->
-<section class="slide slide-cover slide-bg slide-bg-strong" id="slide-1" data-title="封面" style="background-image:url('./assets/luxury-hk-golden.jpg');">
+<section class="slide slide-cover slide-bg slide-bg-strong" id="slide-1" data-title="封面" style="background-image:url('./assets/luxury-hk-golden.png');">
   <div class="halo" style="top:50%;left:50%;transform:translate(-50%,-50%)"></div>
   <div class="bg-glow" style="width:600px;height:600px;background:radial-gradient(circle,rgba(212,175,55,0.15),transparent);top:20%;left:60%"></div>
   <div class="bg-glow" style="width:400px;height:400px;background:radial-gradient(circle,rgba(199,125,74,0.12),transparent);bottom:20%;left:20%"></div>
@@ -364,7 +593,7 @@ body {
 </section>
 
 <!-- ============ SLIDE 2: 离火九运 ============ -->
-<section class="slide slide-bg" id="slide-2" data-title="离火九运" style="background-image:url('./assets/luxury-fire-v2.jpg');">
+<section class="slide slide-bg" id="slide-2" data-title="离火九运" style="background-image:url('./assets/luxury-fire-v2.png');">
   <div class="fire-deco" style="top:10%;right:-100px;"></div>
   <div class="fire-deco" style="bottom:15%;left:-80px;animation-delay:-3s;"></div>
   <div class="slide-inner" style="text-align:center;">
@@ -401,7 +630,7 @@ body {
 </section>
 
 <!-- ============ SLIDE 3: 认清现实 ============ -->
-<section class="slide slide-bg" id="slide-3" data-title="认清现实" style="background-image:url('./assets/shattered-glass.jpg');">
+<section class="slide slide-bg" id="slide-3" data-title="认清现实" style="background-image:url('./assets/shattered-glass.png');">
   <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(196,78,43,0.1),transparent);top:10%;right:10%"></div>
   <div class="slide-inner">
     <span class="tag animate-in" style="background:rgba(196,78,43,0.12);color:#C77D4A;border-color:rgba(196,78,43,0.2);">算账第一步</span>
@@ -441,7 +670,7 @@ body {
 </section>
 
 <!-- ============ SLIDE 4: 转机 ============ -->
-<section class="slide slide-bg slide-bg-strong" id="slide-4" data-title="转机来了" style="background-image:url('./assets/luxury-hk-golden.jpg');">
+<section class="slide slide-bg slide-bg-strong" id="slide-4" data-title="转机来了" style="background-image:url('./assets/luxury-hk-golden.png');">
   <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(212,175,55,0.1),transparent);top:20%;left:50%"></div>
   <div class="slide-inner">
     <span class="tag animate-in" style="background:rgba(212,175,55,0.12);color:#D4AF37;border-color:rgba(212,175,55,0.2);">但是</span>
@@ -477,7 +706,7 @@ body {
 </section>
 
 <!-- ============ SLIDE 5: 迪拜暗线 ============ -->
-<section class="slide slide-bg" id="slide-5" data-title="迪拜暗线" style="background-image:url('./assets/dubai-vs-hk.jpg');">
+<section class="slide slide-bg" id="slide-5" data-title="迪拜暗线" style="background-image:url('./assets/dubai-vs-hk.png');">
   <div class="slide-inner">
     <span class="tag animate-in">迪拜暗线</span>
     <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
@@ -556,7 +785,7 @@ body {
 </section>
 
 <!-- ============ SLIDE 7: Web3→Web4 ============ -->
-<section class="slide slide-bg" id="slide-7" data-title="Web3→Web4" style="background-image:url('./assets/luxury-ai-agent.jpg');">
+<section class="slide slide-bg" id="slide-7" data-title="Web3→Web4" style="background-image:url('./assets/luxury-ai-agent.png');">
   <div class="bg-glow" style="width:400px;height:400px;background:radial-gradient(circle,rgba(212,175,55,0.12),transparent);top:10%;right:20%"></div>
   <div class="slide-inner">
     <span class="tag animate-in">脱虚向实</span>
@@ -648,7 +877,7 @@ body {
 </section>
 
 <!-- ============ SLIDE 10: TunaPay ============ -->
-<section class="slide slide-bg" id="slide-10" data-title="TunaPay" style="background-image:url('./assets/luxury-card.jpg');">
+<section class="slide slide-bg" id="slide-10" data-title="TunaPay" style="background-image:url('./assets/luxury-card.png');">
   <div class="bg-glow" style="width:400px;height:400px;background:radial-gradient(circle,rgba(212,175,55,0.1),transparent);top:15%;right:15%"></div>
   <div class="slide-inner">
     <span class="tag animate-in">实操</span>
@@ -707,7 +936,7 @@ body {
 </section>
 
 <!-- ============ SLIDE 12: 泰山科技 ============ -->
-<section class="slide slide-bg" id="slide-12" data-title="泰山科技" style="background-image:url('./assets/luxury-office.jpg');">
+<section class="slide slide-bg" id="slide-12" data-title="泰山科技" style="background-image:url('./assets/luxury-office.png');">
   <div class="bg-glow" style="width:400px;height:400px;background:radial-gradient(circle,rgba(199,125,74,0.1),transparent);bottom:10%;left:20%"></div>
   <div class="slide-inner">
     <span class="tag animate-in">实操</span>
@@ -813,7 +1042,7 @@ body {
 </section>
 
 <!-- ============ SLIDE 15: Web4实操案例 ============ -->
-<section class="slide slide-bg" id="slide-15" data-title="Web4实操" style="background-image:url('./assets/luxury-ai-agent.jpg');">
+<section class="slide slide-bg" id="slide-15" data-title="Web4实操" style="background-image:url('./assets/luxury-ai-agent.png');">
   <div class="bg-glow" style="width:400px;height:400px;background:radial-gradient(circle,rgba(212,175,55,0.12),transparent);top:15%;right:10%"></div>
   <div class="slide-inner">
     <span class="tag animate-in">Web4实操</span>
@@ -890,7 +1119,7 @@ body {
 </section>
 
 <!-- ============ SLIDE 17: 一句话 ============ -->
-<section class="slide slide-bg slide-bg-light" id="slide-17" data-title="一句话" style="background-image:url('./assets/luxury-hk-night.jpg');">
+<section class="slide slide-bg slide-bg-light" id="slide-17" data-title="一句话" style="background-image:url('./assets/luxury-hk-night.png');">
   <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(212,175,55,0.1),transparent);top:30%;left:40%"></div>
   <div class="slide-inner" style="text-align:center;">
     <h2 class="title-huge animate-in" style="line-height:1.2;">
@@ -908,7 +1137,7 @@ body {
 </section>
 
 <!-- ============ SLIDE 18: 结尾 ============ -->
-<section class="slide slide-bg slide-bg-light" id="slide-18" data-title="结尾" style="background-image:url('./assets/luxury-hk-night.jpg');">
+<section class="slide slide-bg slide-bg-light" id="slide-18" data-title="结尾" style="background-image:url('./assets/luxury-hk-night.png');">
   <div class="halo" style="top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.15;width:400px;height:400px;"></div>
   <div class="slide-inner" style="text-align:center;">
     <h2 class="title-huge animate-in">
@@ -925,7 +1154,7 @@ body {
 </section>
 
 <!-- ============ SLIDE 19: 谢谢 ============ -->
-<section class="slide slide-bg slide-bg-light" id="slide-19" data-title="谢谢" style="background-image:url('./assets/luxury-hk-golden.jpg');">
+<section class="slide slide-bg slide-bg-light" id="slide-19" data-title="谢谢" style="background-image:url('./assets/luxury-hk-golden.png');">
   <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(212,175,55,0.08),transparent);top:30%;left:40%"></div>
   <div class="slide-inner" style="text-align:center;">
     <h2 class="title-huge animate-in" style="font-size:clamp(56px,8vw,100px);">
