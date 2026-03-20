@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026香港Web3：故事讲完了，开始算账</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-snap-type: y mandatory; overflow-x: hidden; height: 100%; }
+body {
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+  background: #0D0B08;
+  color: #F5E6D0;
+  cursor: none;
+  overflow-x: hidden;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========== CUSTOM CURSOR ========== */
+.cursor { position: fixed; width: 20px; height: 20px; border: 2px solid rgba(212,175,55,0.6); border-radius: 50%; pointer-events: none; z-index: 10000; transform: translate(-50%,-50%); transition: width 0.2s, height 0.2s, border-color 0.2s, background 0.2s; mix-blend-mode: difference; }
+.cursor.hover { width: 50px; height: 50px; background: rgba(212,175,55,0.15); border-color: rgba(232,201,122,0.9); }
+.cursor-dot { position: fixed; width: 5px; height: 5px; background: #D4AF37; border-radius: 50%; pointer-events: none; z-index: 10001; transform: translate(-50%,-50%); }
+.cursor-trail { position: fixed; width: 6px; height: 6px; border-radius: 50%; pointer-events: none; z-index: 9999; opacity: 0; background: radial-gradient(circle, rgba(212,175,55,0.6), transparent); }
+
+/* ========== SLIDE SYSTEM ========== */
+.slide {
+  width: 100vw; height: 100vh; min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  position: relative; overflow: hidden;
+  scroll-snap-align: start;
+  padding: 80px 120px;
+}
+.slide-inner {
+  max-width: 1200px; width: 100%;
+  z-index: 2; position: relative;
+}
+/* Background image slides */
+.slide-bg {
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+}
+.slide-bg::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(13,11,8,0.6) 0%, rgba(13,11,8,0.75) 50%, rgba(13,11,8,0.88) 100%);
+  z-index: 1;
+}
+.slide-bg-strong::before {
+  background: linear-gradient(180deg, rgba(13,11,8,0.55) 0%, rgba(13,11,8,0.7) 40%, rgba(13,11,8,0.85) 100%);
+}
+.slide-bg-light::before {
+  background: linear-gradient(180deg, rgba(13,11,8,0.35) 0%, rgba(13,11,8,0.55) 50%, rgba(13,11,8,0.7) 100%);
+}
+
+/* ========== NAV DOTS ========== */
+.nav-dots {
+  position: fixed; right: 30px; top: 50%; transform: translateY(-50%);
+  z-index: 1000; display: flex; flex-direction: column; gap: 10px;
+}
+.nav-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(212,175,55,0.25); border: 1px solid rgba(212,175,55,0.2);
+  cursor: none; position: relative;
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.nav-dot.active { background: #D4AF37; box-shadow: 0 0 12px rgba(212,175,55,0.6); transform: scale(1.3); }
+.nav-dot:hover { background: rgba(212,175,55,0.5); transform: scale(1.2); }
+.nav-dot .tooltip {
+  position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
+  background: rgba(13,11,8,0.95); border: 1px solid rgba(212,175,55,0.3);
+  backdrop-filter: blur(12px); padding: 6px 14px; border-radius: 8px;
+  white-space: nowrap; font-size: 12px; color: #E8C97A;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s, right 0.2s;
+}
+.nav-dot:hover .tooltip { opacity: 1; right: 28px; }
+
+/* ========== TYPOGRAPHY ========== */
+.title-huge { font-family: 'Playfair Display', 'Noto Serif SC', serif; font-size: clamp(56px, 7vw, 100px); font-weight: 900; line-height: 1.08; letter-spacing: -0.02em; }
+.title-large { font-family: 'Playfair Display', 'Noto Serif SC', serif; font-size: clamp(36px, 4.5vw, 64px); font-weight: 800; line-height: 1.12; letter-spacing: -0.01em; }
+.title-mid { font-family: 'Playfair Display', 'Noto Serif SC', serif; font-size: clamp(26px, 3.2vw, 44px); font-weight: 700; line-height: 1.2; }
+.subtitle { font-size: clamp(16px, 1.5vw, 22px); font-weight: 300; color: #B8A089; line-height: 1.7; margin-top: 16px; letter-spacing: 0.04em; }
+.body-text { font-size: clamp(14px, 1.2vw, 18px); line-height: 1.75; color: #C4B098; font-weight: 300; }
+.small-text { font-size: clamp(12px, 1vw, 14px); color: #7A6B5A; letter-spacing: 0.06em; text-transform: uppercase; }
+.gradient-text { background: linear-gradient(135deg, #D4AF37, #E8C97A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.gradient-text-fire { background: linear-gradient(135deg, #D4AF37, #C44E2B, #8B1A1A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.highlight { color: #E8C97A; font-weight: 600; }
+.strikethrough { text-decoration: line-through; color: #7A6B5A; opacity: 0.7; }
+
+/* ========== GOLD QUOTE ========== */
+.gold-quote {
+  background: rgba(212,175,55,0.06);
+  border-left: 3px solid #D4AF37;
+  padding: 20px 28px; border-radius: 0 12px 12px 0;
+  margin: 24px 0; font-size: clamp(15px, 1.3vw, 19px);
+  color: #E8C97A; font-weight: 500; line-height: 1.7;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+
+/* ========== GLASS CARD ========== */
+.glass-card {
+  background: rgba(255,248,240,0.04);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212,175,55,0.12);
+  border-radius: 16px; padding: 40px;
+  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212,175,55,0.3);
+  box-shadow: 0 20px 60px rgba(212,175,55,0.1), 0 0 30px rgba(212,175,55,0.06);
+}
+
+/* ========== SPLIT LAYOUT ========== */
+.split-container { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 32px; }
+.split-left {
+  background: rgba(255,248,240,0.03); border: 1px solid rgba(255,248,240,0.08);
+  border-radius: 16px; padding: 36px;
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+}
+.split-right {
+  background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 16px; padding: 36px;
+  box-shadow: 0 0 40px rgba(212,175,55,0.05);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+}
+.split-label {
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 16px; font-weight: 600;
+}
+.split-left .split-label { color: #7A6B5A; }
+.split-right .split-label { color: #D4AF37; }
+
+/* ========== BULLET ITEMS ========== */
+.bullet-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+  opacity: 0; transform: translateX(-20px);
+  transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.bullet-item.visible { opacity: 1; transform: translateX(0); }
+.bullet-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.bullet-text { font-size: clamp(14px, 1.1vw, 16px); line-height: 1.6; color: #C4B098; }
+
+/* ========== CARDS ROW ========== */
+.cards-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+
+/* ========== TIMELINE ========== */
+.timeline { position: relative; padding-left: 24px; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, #D4AF37, #C77D4A, transparent); }
+.timeline-item { position: relative; padding: 16px 0 16px 20px; }
+.timeline-item::before { content: ''; position: absolute; left: -28px; top: 22px; width: 10px; height: 10px; border-radius: 50%; background: #D4AF37; box-shadow: 0 0 12px rgba(212,175,55,0.5); }
+.timeline-date { font-size: 13px; color: #D4AF37; font-weight: 600; margin-bottom: 4px; }
+.timeline-text { font-size: 14px; color: #C4B098; line-height: 1.5; }
+
+/* ========== CHECKBOX LIST ========== */
+.check-item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 14px 20px; margin: 8px 0;
+  background: rgba(255,248,240,0.04); border: 1px solid rgba(212,175,55,0.12);
+  border-radius: 12px; cursor: none;
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.check-item:hover { background: rgba(212,175,55,0.06); border-color: rgba(212,175,55,0.3); }
+.check-item.checked { border-color: rgba(212,175,55,0.4); background: rgba(212,175,55,0.06); }
+.check-box {
+  width: 24px; height: 24px; border-radius: 6px; flex-shrink: 0;
+  border: 2px solid rgba(212,175,55,0.3); display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s;
+  font-size: 14px; color: transparent;
+}
+.check-item.checked .check-box { background: #D4AF37; border-color: #D4AF37; color: #0D0B08; }
+.check-text { font-size: clamp(14px, 1.1vw, 16px); color: #C4B098; line-height: 1.5; }
+
+/* ========== CYCLE DIAGRAM ========== */
+.cycle-diagram {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 16px; margin: 32px auto; max-width: 900px;
+}
+.cycle-node {
+  background: rgba(255,248,240,0.04); border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 14px; padding: 18px 24px; min-width: 200px; text-align: center;
+  font-size: 14px; color: #E8C97A; line-height: 1.5;
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.cycle-node:hover { border-color: rgba(212,175,55,0.4); box-shadow: 0 0 30px rgba(212,175,55,0.1); transform: translateY(-2px); }
+.cycle-arrow { font-size: 24px; color: #D4AF37; animation: pulseArrow 2s infinite; }
+@keyframes pulseArrow { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+/* ========== CYCLE RING (Slide 15) ========== */
+.cycle-ring {
+  display: grid; max-width: 700px; margin: 24px auto;
+  grid-template-areas:
+    ".   au  top  ar  ."
+    "left .   .    .  right"
+    ".   al  bottom ad .";
+  grid-template-columns: 1fr 40px 1fr 40px 1fr;
+  grid-template-rows: auto 40px auto;
+  align-items: center; justify-items: center; gap: 8px;
+}
+.cycle-ring-node {
+  background: rgba(255,248,240,0.04); border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 14px; padding: 16px 20px; text-align: center; width: 100%;
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.cycle-ring-node:hover { border-color: rgba(212,175,55,0.4); box-shadow: 0 0 30px rgba(212,175,55,0.1); transform: scale(1.03); }
+.crn-icon { font-size: 28px; margin-bottom: 6px; }
+.crn-title { font-size: 14px; color: #E8C97A; font-weight: 600; }
+.crn-desc { font-size: 12px; color: #7A6B5A; margin-top: 4px; }
+.cycle-ring-arrow { font-size: 22px; color: #D4AF37; animation: pulseArrow 2s infinite; }
+
+/* ========== BACKGROUND EFFECTS ========== */
+.bg-glow {
+  position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.3; pointer-events: none;
+}
+.slide-cover { background: radial-gradient(ellipse at center, #1A1612 0%, #0D0B08 70%); }
+
+/* ========== ROTATING HALO ========== */
+@property --halo-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+.halo {
+  position: absolute; width: 500px; height: 500px;
+  border-radius: 50%;
+  background: conic-gradient(from var(--halo-angle), transparent, #D4AF37, #E8C97A, #C77D4A, transparent);
+  filter: blur(80px); opacity: 0.25;
+  animation: rotateHalo 8s linear infinite;
+}
+@keyframes rotateHalo { to { --halo-angle: 360deg; } }
+
+/* ========== FIRE DECORATION ========== */
+.fire-deco {
+  position: absolute; pointer-events: none;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,175,55,0.2), rgba(196,78,43,0.15), rgba(139,26,26,0.1), transparent 70%);
+  filter: blur(60px); animation: fireFloat 6s ease-in-out infinite;
+}
+@keyframes fireFloat { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-20px) scale(1.1); } }
+
+/* ========== SLAP ANIMATION (Slide 3) ========== */
+.slap-item {
+  opacity: 0; transform: translateX(-40px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.16,1,0.3,1);
+  padding: 14px 20px; margin: 8px 0;
+  border-radius: 12px;
+  border-left: 3px solid rgba(196,78,43,0.5);
+  background: rgba(196,78,43,0.06);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.slap-item.visible { opacity: 1; transform: translateX(0) scale(1); }
+.slap-item .year { color: #C77D4A; font-weight: 700; font-size: 14px; }
+.slap-item .desc { color: #C4B098; font-size: clamp(13px, 1.1vw, 15px); line-height: 1.5; margin-top: 4px; }
+
+/* ========== COMPARISON TABLE (Slide 6) ========== */
+.compare-row { display: flex; align-items: center; margin: 6px 0; }
+.compare-left { flex: 1; text-align: right; padding-right: 16px; color: #7A6B5A; font-size: 14px; }
+.compare-divider { width: 2px; height: 100%; background: rgba(212,175,55,0.3); position: relative; }
+.compare-right { flex: 1; padding-left: 16px; color: #E8C97A; font-size: 14px; font-weight: 500; }
+
+/* ========== BOTTOM BAR ========== */
+.slide-bottom {
+  position: absolute; bottom: 40px; left: 80px; right: 80px;
+  display: flex; justify-content: space-between; align-items: flex-end;
+}
+.slide-number { font-size: 12px; color: #7A6B5A; font-weight: 500; }
+
+/* ========== PAGE INDICATOR ========== */
+.page-indicator {
+  position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+  font-size: 13px; color: rgba(212,175,55,0.3); z-index: 1000;
+  background: rgba(13,11,8,0.8); padding: 6px 16px; border-radius: 20px;
+  backdrop-filter: blur(10px); border: 1px solid rgba(212,175,55,0.1);
+}
+
+/* ========== TAG ========== */
+.tag {
+  display: inline-block; padding: 4px 14px; border-radius: 20px;
+  font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase;
+  background: rgba(212,175,55,0.08); color: #D4AF37;
+  border: 1px solid rgba(212,175,55,0.4);
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeInUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+.animate-in { animation: fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .slide { padding: 50px 28px; }
+  .split-container { grid-template-columns: 1fr; }
+  .cards-row { grid-template-columns: 1fr; }
+  .nav-dots { right: 12px; gap: 8px; }
+  .nav-dot { width: 7px; height: 7px; }
+  .nav-dot .tooltip { display: none; }
+  .slide-bottom { left: 24px; right: 24px; }
+  .cycle-diagram { flex-direction: column; }
+  .cycle-arrow { transform: rotate(90deg); }
+}
+
+/* ========== FOOTER ========== */
+.pplx-footer {
+  position: fixed; bottom: 8px; right: 30px; z-index: 999;
+  font-size: 10px; color: #7A6B5A;
+}
+.pplx-footer a { color: #7A6B5A; text-decoration: none; }
+.pplx-footer a:hover { color: #B8A089; }
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Nav Dots -->
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- Page Indicator -->
+<div class="page-indicator" id="pageIndicator">1 / 19</div>
+
+<!-- ============ SLIDE 1: COVER ============ -->
+<section class="slide slide-cover slide-bg slide-bg-strong" id="slide-1" data-title="封面" style="background-image:url('./assets/luxury-hk-golden.jpg');">
+  <div class="halo" style="top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+  <div class="bg-glow" style="width:600px;height:600px;background:radial-gradient(circle,rgba(212,175,55,0.15),transparent);top:20%;left:60%"></div>
+  <div class="bg-glow" style="width:400px;height:400px;background:radial-gradient(circle,rgba(199,125,74,0.12),transparent);bottom:20%;left:20%"></div>
+  <div class="slide-inner" style="text-align:center;">
+    <div class="animate-in" style="margin-bottom:24px;">
+      <span class="tag">HODLER论坛第四期 · 香港站 · 2026.03.21</span>
+    </div>
+    <h1 class="title-huge animate-in delay-1">
+      <span class="gradient-text">2026香港Web3</span>
+    </h1>
+    <p class="title-large animate-in delay-2" style="color:#F5E6D0;margin-top:8px;">故事讲完了，开始算账</p>
+    <p class="subtitle animate-in delay-3" style="color:#B8A089;font-size:clamp(16px,1.5vw,20px);">哪些是虚张声势，哪些是真机会</p>
+    <div class="animate-in delay-5" style="margin-top:48px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap;">
+      <span style="color:#7A6B5A;font-size:14px;">元宇宙公主</span>
+      <span style="color:#7A6B5A;">|</span>
+      <span style="color:#7A6B5A;font-size:14px;">泰山科技集团</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 2: 离火九运 ============ -->
+<section class="slide slide-bg" id="slide-2" data-title="离火九运" style="background-image:url('./assets/luxury-fire-v2.jpg');">
+  <div class="fire-deco" style="top:10%;right:-100px;"></div>
+  <div class="fire-deco" style="bottom:15%;left:-80px;animation-delay:-3s;"></div>
+  <div class="slide-inner" style="text-align:center;">
+    <span class="tag animate-in">离火九运</span>
+    <h2 class="title-huge animate-in delay-1" style="margin-top:24px;">
+      <span class="gradient-text-fire">离火九运</span><br>万物皆可数字化
+    </h2>
+    <p class="subtitle animate-in delay-2" style="max-width:700px;margin:16px auto 0;">
+      但数字化不等于能赚钱。离中虚——虚的会更虚，实的会更实。
+    </p>
+    <div class="split-container animate-in delay-3" style="margin-top:36px;text-align:left;">
+      <div class="split-left">
+        <div class="split-label" style="color:#C77D4A;">Web3的"虚"</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <p class="body-text" style="font-size:13px;color:#7A6B5A;">只有叙事、只有社区热度</p>
+          <p class="body-text" style="font-size:13px;color:#7A6B5A;">只有PPT、只有白皮书</p>
+          <p class="body-text" style="font-size:13px;color:#7A6B5A;">VASP全线亏损、沙盒空转</p>
+        </div>
+      </div>
+      <div class="split-right">
+        <div class="split-label">Web3的"实"</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <p class="body-text" style="font-size:13px;color:#E8C97A;">有人付钱、有真实场景</p>
+          <p class="body-text" style="font-size:13px;color:#E8C97A;">有合规路径、有闭环收入</p>
+          <p class="body-text" style="font-size:13px;color:#E8C97A;">Agent在链上干活</p>
+        </div>
+      </div>
+    </div>
+    <div class="gold-quote animate-in delay-4" style="text-align:center;border-left:none;border-radius:12px;border:1px solid rgba(212,175,55,0.2);">
+      离火九运的红利，只属于脱虚向实的人。<br>
+      <span style="font-size:14px;color:#B8A089;">虚火最旺的时代，最需要算账的能力。算账，是一种好家风。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 3: 认清现实 ============ -->
+<section class="slide slide-bg" id="slide-3" data-title="认清现实" style="background-image:url('./assets/shattered-glass.jpg');">
+  <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(196,78,43,0.1),transparent);top:10%;right:10%"></div>
+  <div class="slide-inner">
+    <span class="tag animate-in" style="background:rgba(196,78,43,0.12);color:#C77D4A;border-color:rgba(196,78,43,0.2);">算账第一步</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      过去三年，香港Web3<br>落地了个什么？
+    </h2>
+    <div style="margin-top:32px;" id="slapList">
+      <div class="slap-item" data-delay="200">
+        <div class="year">2022</div>
+        <div class="desc">财爷高喊"建设世界级Web3中心"，全球瞩目</div>
+      </div>
+      <div class="slap-item" data-delay="600">
+        <div class="year">2023</div>
+        <div class="desc">JPEX爆雷，<span class="highlight">16亿港币</span>，2600多人报案，41%港人表示再也不碰虚拟资产</div>
+      </div>
+      <div class="slap-item" data-delay="1000">
+        <div class="year">VASP</div>
+        <div class="desc">11家持牌VASP交易平台，至今<span class="highlight">全线亏损</span>，在极高合规成本下苦苦支撑</div>
+      </div>
+      <div class="slap-item" data-delay="1400">
+        <div class="year">RWA</div>
+        <div class="desc">RWA沙盒Project Ensemble雷声大雨点小，缺乏实质资产标的，几近空转</div>
+      </div>
+      <div class="slap-item" data-delay="1800">
+        <div class="year">稳定币</div>
+        <div class="desc">在毫无本土应用场景的情况下，酝酿比美国更严苛的监管——<span style="color:#C77D4A;">在沙漠里制定捕鱼法</span></div>
+      </div>
+      <div class="slap-item" data-delay="2200">
+        <div class="year">创新者</div>
+        <div class="desc">慕名而来，结果走进了一个精致却窒息的<span style="color:#C77D4A;">"玻璃箱"</span></div>
+      </div>
+    </div>
+    <div class="gold-quote animate-in delay-6" style="border-left-color:#C77D4A;background:rgba(196,78,43,0.06);">
+      起了个大早，赶了个晚集，甚至连晚集都赶不上。这就是"虚"。
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 4: 转机 ============ -->
+<section class="slide slide-bg slide-bg-strong" id="slide-4" data-title="转机来了" style="background-image:url('./assets/luxury-hk-golden.jpg');">
+  <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(212,175,55,0.1),transparent);top:20%;left:50%"></div>
+  <div class="slide-inner">
+    <span class="tag animate-in" style="background:rgba(212,175,55,0.12);color:#D4AF37;border-color:rgba(212,175,55,0.2);">但是</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      2026年，四件事同时发生了
+    </h2>
+    <div class="cards-row" style="margin-top:40px;grid-template-columns:1fr 1fr;">
+      <div class="glass-card animate-in delay-2">
+        <div style="font-size:36px;margin-bottom:16px;">🔥</div>
+        <h3 style="font-size:18px;font-weight:700;color:#C77D4A;margin-bottom:8px;">中东炸了</h3>
+        <p class="body-text" style="font-size:14px;">迪拜家办和金融机构大规模撤离，资金要找新家</p>
+      </div>
+      <div class="glass-card animate-in delay-3">
+        <div style="font-size:36px;margin-bottom:16px;">🏦</div>
+        <h3 style="font-size:18px;font-weight:700;color:#D4AF37;margin-bottom:8px;">老钱入场</h3>
+        <p class="body-text" style="font-size:14px;">汇丰、渣打即将拿到香港首批稳定币牌照，发钞行亲自下场Web3</p>
+      </div>
+      <div class="glass-card animate-in delay-4">
+        <div style="font-size:36px;margin-bottom:16px;">🤖</div>
+        <h3 style="font-size:18px;font-weight:700;color:#E8C97A;margin-bottom:8px;">AI+链上成熟</h3>
+        <p class="body-text" style="font-size:14px;">Agent可以自主在链上完成支付、结算、合规，Web4不再是概念</p>
+      </div>
+      <div class="glass-card animate-in delay-5">
+        <div style="font-size:36px;margin-bottom:16px;">🎓</div>
+        <h3 style="font-size:18px;font-weight:700;color:#E8C97A;margin-bottom:8px;">港府AI拨款</h3>
+        <p class="body-text" style="font-size:14px;">2026/27财政预算案：<span class="highlight">5000万港元全民AI培训</span>，联合公营机构、科企、大专院校推动AI认知和应用</p>
+      </div>
+    </div>
+    <p class="body-text animate-in delay-6" style="margin-top:32px;text-align:center;color:#B8A089;">
+      问题不是"机会来不来"，是<span class="highlight">"你能不能接住并且赚到钱"</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ SLIDE 5: 迪拜暗线 ============ -->
+<section class="slide slide-bg" id="slide-5" data-title="迪拜暗线" style="background-image:url('./assets/dubai-vs-hk.jpg');">
+  <div class="slide-inner">
+    <span class="tag animate-in">迪拜暗线</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      钱不是用麻袋扛来的
+    </h2>
+    <div class="split-container animate-in delay-2">
+      <div class="split-left">
+        <div class="split-label">大家以为的</div>
+        <p class="body-text" style="font-size:15px;">
+          香港1月出口暴涨33.8% = 迪拜土豪搬家
+        </p>
+        <p class="body-text" style="margin-top:12px;font-size:13px;color:#7A6B5A;">
+          实际上：春节错月效应 + AI芯片补库存<br>
+          <span style="color:#C77D4A;">一毛钱关系没有</span>
+        </p>
+      </div>
+      <div class="split-right">
+        <div class="split-label">真正发生的</div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2.12</div>
+            <div class="timeline-text">阿联酋央行加入香港CMU，mBridge和RWA代币化打通</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2.23</div>
+            <div class="timeline-text">DMCC签署"阿联酋-香港财富走廊协议"</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">3.12</div>
+            <div class="timeline-text">汇丰渣打即将获首批港元稳定币牌照</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gold-quote animate-in delay-3" style="margin-top:28px;">
+      国家级在链上铺管道。港元稳定币 = 美国长臂管辖够不到的数字结界。<br>
+      CMU + 合规稳定币 + 离岸人民币枢纽，三张牌叠出<span style="color:#E8C97A;">非美元数字资产枢纽</span>。
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 6: 财富回流 ============ -->
+<section class="slide" id="slide-6" data-title="财富回流">
+  <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(212,175,55,0.1),transparent);top:15%;right:20%"></div>
+  <div class="bg-glow" style="width:400px;height:400px;background:radial-gradient(circle,rgba(199,125,74,0.08),transparent);bottom:15%;left:15%"></div>
+  <div class="slide-inner">
+    <span class="tag animate-in" style="background:rgba(212,175,55,0.12);color:#D4AF37;border-color:rgba(212,175,55,0.2);">财富迁徙</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      漂流一圈<br><span class="gradient-text">最后还是回到香港</span>
+    </h2>
+    <p class="body-text animate-in delay-2" style="margin-top:12px;color:#B8A089;font-size:14px;max-width:800px;">
+      新加坡办身份、迪拜拿黄金签证——结果中东一打仗，又想把资产放回香港。Big4香港税务所2025年起业务爆棚。为什么？
+    </p>
+    <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="animate-in delay-3">
+      <div class="glass-card" style="padding:22px 24px;">
+        <div style="font-size:13px;color:#D4AF37;font-weight:600;margin-bottom:10px;">🔒 安全感</div>
+        <p class="body-text" style="font-size:13px;">香港是<span class="highlight">唯一同时联通内地和全球的节点</span>。中环到深圳湾一小时，地理近、效率高、半天搞定问题</p>
+      </div>
+      <div class="glass-card" style="padding:22px 24px;">
+        <div style="font-size:13px;color:#D4AF37;font-weight:600;margin-bottom:10px;">🏦 金融基建深度</div>
+        <p class="body-text" style="font-size:13px;">沪深港通、债券通、<span class="highlight">跨境理财通</span>——分享中国增长红利，同时对冲单一市场风险，配置全球资产</p>
+      </div>
+      <div class="glass-card" style="padding:22px 24px;">
+        <div style="font-size:13px;color:#D4AF37;font-weight:600;margin-bottom:10px;">⚖️ 法律与税务确定性</div>
+        <p class="body-text" style="font-size:13px;">普通法体系、<span class="highlight">无外汇管制</span>、与内地避免双重征税。法律税务服务成本比新加坡/迪拜<span style="color:#E8C97A;">便宜得多</span></p>
+      </div>
+      <div class="glass-card" style="padding:22px 24px;">
+        <div style="font-size:13px;color:#D4AF37;font-weight:600;margin-bottom:10px;">🗡️ CRS达摩克利斯之剑</div>
+        <p class="body-text" style="font-size:13px;">CRS全球大网，信息交换是时间问题。但香港已经<span class="highlight">把剑放下了</span>——看到底牌，就可以提前规划</p>
+      </div>
+    </div>
+    <div class="gold-quote animate-in delay-4">
+      财富漂流的尽头，是安全感。而香港给的安全感，是制度级的。
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 7: Web3→Web4 ============ -->
+<section class="slide slide-bg" id="slide-7" data-title="Web3→Web4" style="background-image:url('./assets/luxury-ai-agent.jpg');">
+  <div class="bg-glow" style="width:400px;height:400px;background:radial-gradient(circle,rgba(212,175,55,0.12),transparent);top:10%;right:20%"></div>
+  <div class="slide-inner">
+    <span class="tag animate-in">脱虚向实</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      Web3讲了三年故事<br><span class="gradient-text">Web4开始干活了</span>
+    </h2>
+    <div class="split-container animate-in delay-2">
+      <div class="split-left" style="opacity:0.7;">
+        <div class="split-label" style="color:#C77D4A;">Web3时代（虚）</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="body-text" style="font-size:14px;color:#7A6B5A;">👤 人操作钱包</div>
+          <div class="body-text" style="font-size:14px;color:#7A6B5A;">📝 人填KYC</div>
+          <div class="body-text" style="font-size:14px;color:#7A6B5A;">👀 人盯行情</div>
+          <div class="body-text" style="font-size:14px;color:#7A6B5A;">💸 人手动转账</div>
+          <div class="body-text" style="font-size:14px;color:#7A6B5A;">📄 人写合规报告</div>
+        </div>
+      </div>
+      <div class="split-right">
+        <div class="split-label">Web4时代（实）</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="body-text" style="font-size:14px;color:#E8C97A;">🤖 AI Agent自主操作钱包</div>
+          <div class="body-text" style="font-size:14px;color:#E8C97A;">⚡ 自动完成KYC筛查</div>
+          <div class="body-text" style="font-size:14px;color:#E8C97A;">🔍 实时监控风险</div>
+          <div class="body-text" style="font-size:14px;color:#E8C97A;">🔗 Agent-to-Agent链上支付</div>
+          <div class="body-text" style="font-size:14px;color:#E8C97A;">📊 合规报告自动生成</div>
+        </div>
+      </div>
+    </div>
+    <div class="glass-card animate-in delay-3" style="margin-top:24px;padding:20px 28px;">
+      <p class="body-text" style="font-size:14px;"><span class="highlight">Google推出A2A协议</span>，让AI Agent直接处理链上支付，与Coinbase和以太坊基金会合作</p>
+      <p class="body-text" style="font-size:14px;margin-top:8px;"><span class="highlight">x402协议</span>：Agent A向Agent B发请求 → 链上付0.01 USDC → 秒级结算 → 无需人工、无需KYC、无需API Key</p>
+      <p class="body-text" style="font-size:14px;margin-top:8px;">全球AI Agent支付底层<span class="highlight">99%跑在稳定币网络上</span></p>
+    </div>
+    <div class="gold-quote animate-in delay-4">
+      Web3是人用区块链，Web4是AI用区块链。这才是离火九运真正的"实"。
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 8: 转折 ============ -->
+<section class="slide" id="slide-8" data-title="开始算账">
+  <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(212,175,55,0.1),transparent);bottom:10%;left:30%"></div>
+  <div class="slide-inner" style="text-align:center;">
+    <span class="tag animate-in">转折</span>
+    <h2 class="title-huge animate-in delay-1" style="margin-top:24px;">
+      故事很性感<br><span class="gradient-text">但我们是来算账的</span>
+    </h2>
+    <p class="subtitle animate-in delay-2" style="max-width:700px;margin:24px auto 0;">
+      管道铺好了，协议成熟了，钱也在路上了。<br>
+      但真正的问题是——在这条管道上，<span class="highlight">谁能建出可收费的业务？</span>
+    </p>
+    <div class="animate-in delay-3" style="margin-top:48px;padding:20px 0;border-top:1px solid rgba(212,175,55,0.15);">
+      <p class="body-text" style="color:#7A6B5A;font-size:15px;">
+        下面4笔账，是我自己踩出来的。<br>不讲别人的故事，只讲我自己算明白的。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 9: 客户账① 痛点 ============ -->
+<section class="slide" id="slide-9" data-title="客户账①">
+  <div class="slide-inner">
+    <span class="tag animate-in">客户账 ①</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      用户不是来买Web3的
+    </h2>
+    <div class="split-container animate-in delay-2">
+      <div class="split-left">
+        <div class="split-label" style="color:#C77D4A;">虚</div>
+        <p class="body-text" style="font-size:16px;"><span class="strikethrough">用户要"去中心化革命"</span></p>
+      </div>
+      <div class="split-right">
+        <div class="split-label">实</div>
+        <p class="body-text" style="font-size:16px;color:#E8C97A;">用户要更快到账、更低手续费、更少中间环节</p>
+      </div>
+    </div>
+    <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px;" class="animate-in delay-3">
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">🌍 <span class="highlight">数字游民</span>不关心Solana还是以太坊，只想跨境收款不被吃5%手续费</p>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">💼 <span class="highlight">自由职业者</span>不看白皮书，只想USDC发工资不被银行拒</p>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">📦 <span class="highlight">跨境电商</span>不看社区活跃度，只想T+0结算不等3天</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 10: TunaPay ============ -->
+<section class="slide slide-bg" id="slide-10" data-title="TunaPay" style="background-image:url('./assets/luxury-card.jpg');">
+  <div class="bg-glow" style="width:400px;height:400px;background:radial-gradient(circle,rgba(212,175,55,0.1),transparent);top:15%;right:15%"></div>
+  <div class="slide-inner">
+    <span class="tag animate-in">实操</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      所以我们做 <span class="gradient-text">TunaPay</span>
+    </h2>
+    <p class="body-text animate-in delay-2" style="margin-top:20px;max-width:800px;">
+      加密原生支付平台，USDC/Solana充值，虚拟VISA/MC卡管理，<br>
+      Agentic AI智能分配资金，面向数字游民、自由职业者、跨境电商
+    </p>
+    <div class="glass-card animate-in delay-3" style="margin-top:28px;">
+      <div class="split-label" style="color:#E8C97A;">脱虚向实</div>
+      <p class="body-text" style="font-size:15px;">
+        不卖"加密支付概念"<br>
+        卖<span class="highlight">"比SWIFT快、比Stripe便宜、比传统银行更包容"</span>
+      </p>
+    </div>
+    <div class="gold-quote animate-in delay-4">
+      算账标准——有没有人愿意为这个效率差付费？有。这就是真实需求，不是叙事。
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 11: 客户账② 痛点 ============ -->
+<section class="slide" id="slide-11" data-title="客户账②">
+  <div class="slide-inner">
+    <span class="tag animate-in">客户账 ②</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      高净值客户要的是确定性
+    </h2>
+    <div class="split-container animate-in delay-2">
+      <div class="split-left">
+        <div class="split-label" style="color:#C77D4A;">虚</div>
+        <p class="body-text" style="font-size:16px;"><span class="strikethrough">家办要"DeFi高收益故事"</span></p>
+      </div>
+      <div class="split-right">
+        <div class="split-label">实</div>
+        <p class="body-text" style="font-size:16px;color:#E8C97A;">资金安全、进出路径、托管审计、合规报告</p>
+      </div>
+    </div>
+    <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px;" class="animate-in delay-3">
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;"><span class="strikethrough" style="font-size:13px;">收益故事</span> → <span class="highlight">资金安全、进出路径、托管审计</span></p>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">家办要知道钱怎么进、怎么出、中间谁管</p>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">OTC大单客户不看K线，看<span class="highlight">托管牌照、保险额度、审计报告</span></p>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">JPEX爆雷之后，<span style="color:#C77D4A;">信任成本翻了10倍</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 12: 泰山科技 ============ -->
+<section class="slide slide-bg" id="slide-12" data-title="泰山科技" style="background-image:url('./assets/luxury-office.jpg');">
+  <div class="bg-glow" style="width:400px;height:400px;background:radial-gradient(circle,rgba(199,125,74,0.1),transparent);bottom:10%;left:20%"></div>
+  <div class="slide-inner">
+    <span class="tag animate-in">实操</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      所以泰山科技的门槛是<br><span class="gradient-text">100万美金</span>
+    </h2>
+    <p class="body-text animate-in delay-2" style="margin-top:20px;max-width:800px;">
+      面向UHNW家庭和家办，提供资管、OTC、跨境支付、RWA、量化策略、套利组合、合规托管。<br>
+      定位：主权AI基础设施 + 数字金融。
+    </p>
+    <div class="glass-card animate-in delay-3" style="margin-top:28px;">
+      <div class="split-label" style="color:#E8C97A;">脱虚向实</div>
+      <p class="body-text" style="font-size:15px;">
+        不是装逼，是低于这个数<span class="highlight">合规成本和服务成本不划算</span>
+      </p>
+    </div>
+    <div class="gold-quote animate-in delay-4">
+      算账标准——客户为什么持续付钱？因为付的不是管理费，是<span style="color:#E8C97A;">确定性溢价</span>。<br>
+      高净值客户买的是"睡得着觉"。
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 13: 闭环账 痛点 ============ -->
+<section class="slide" id="slide-13" data-title="闭环账">
+  <div class="slide-inner">
+    <span class="tag animate-in">闭环账</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      RWA单独讲很难成交
+    </h2>
+    <div class="split-container animate-in delay-2">
+      <div class="split-left">
+        <div class="split-label" style="color:#C77D4A;">虚</div>
+        <p class="body-text" style="font-size:16px;"><span class="strikethrough">"我们把资产上链了"</span></p>
+      </div>
+      <div class="split-right">
+        <div class="split-label">实</div>
+        <p class="body-text" style="font-size:16px;color:#E8C97A;">上链之后谁用？有没有使用场景？</p>
+      </div>
+    </div>
+    <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px;" class="animate-in delay-3">
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">香港RWA沙盒Project Ensemble几近空转，因为<span class="highlight">缺实质资产标的</span></p>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">市场不缺"资产上链"故事，缺<span class="highlight">谁真的会用这个代币</span></p>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">投资人不是不信RWA，是不信<span style="color:#C77D4A;">没有使用场景</span>的RWA</p>
+      </div>
+      <div class="glass-card" style="padding:18px 24px;">
+        <p class="body-text" style="font-size:14px;">RWA要成立，必须接上<span class="highlight">支付、真实交易、持币激励</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 14: 支付+RWA闭环 ============ -->
+<section class="slide" id="slide-14" data-title="支付+RWA闭环">
+  <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(199,125,74,0.08),transparent);top:20%;left:40%"></div>
+  <div class="slide-inner">
+    <span class="tag animate-in">实操</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      所以我们在做<span class="gradient-text">支付+RWA闭环</span>
+    </h2>
+    <div class="cycle-ring animate-in delay-2">
+      <div class="cycle-ring-node" style="grid-area:top;">
+        <div class="crn-icon">🏪</div>
+        <div class="crn-title">商户用TunaPay结算</div>
+        <div class="crn-desc">手续费折扣需持有TUNA</div>
+      </div>
+      <div class="cycle-ring-arrow ra-right" style="grid-area:ar;">→</div>
+      <div class="cycle-ring-node" style="grid-area:right;">
+        <div class="crn-icon">💳</div>
+        <div class="crn-title">用户用TunaPay消费</div>
+        <div class="crn-desc">持币者享返现</div>
+      </div>
+      <div class="cycle-ring-arrow ra-down" style="grid-area:ad;">↓</div>
+      <div class="cycle-ring-node" style="grid-area:bottom;">
+        <div class="crn-icon">💰</div>
+        <div class="crn-title">交易手续费收入</div>
+        <div class="crn-desc">定期回购销毁TUNA</div>
+      </div>
+      <div class="cycle-ring-arrow ra-left" style="grid-area:al;">←</div>
+      <div class="cycle-ring-node" style="grid-area:left;">
+        <div class="crn-icon">🔄</div>
+        <div class="crn-title">需求拉动 · 价格支撑</div>
+        <div class="crn-desc">生态循环闭合</div>
+      </div>
+      <div class="cycle-ring-arrow ra-up" style="grid-area:au;">↑</div>
+    </div>
+    <div class="glass-card animate-in delay-3" style="margin-top:24px;padding:20px 28px;">
+      <div class="split-label" style="color:#E8C97A;">脱虚向实</div>
+      <p class="body-text" style="font-size:14px;">
+        不是"概念币"，是Solana上的稳定币支付基础设施<br>
+        第一个落地场景：<span class="highlight">全球供应链跨境结算</span>
+      </p>
+    </div>
+    <div class="gold-quote animate-in delay-4">
+      算账标准——业务链条能不能自己转起来？
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 15: Web4实操案例 ============ -->
+<section class="slide slide-bg" id="slide-15" data-title="Web4实操" style="background-image:url('./assets/luxury-ai-agent.jpg');">
+  <div class="bg-glow" style="width:400px;height:400px;background:radial-gradient(circle,rgba(212,175,55,0.12),transparent);top:15%;right:10%"></div>
+  <div class="slide-inner">
+    <span class="tag animate-in">Web4实操</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      Web4不是PPT<br><span class="gradient-text">是Agent已经在链上付钱了</span>
+    </h2>
+    <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="animate-in delay-2">
+      <div class="glass-card" style="padding:24px;">
+        <div style="font-size:13px;color:#D4AF37;font-weight:600;margin-bottom:8px;">x402协议</div>
+        <p class="body-text" style="font-size:13px;">Agent A向Agent B请求服务 → 链上付0.01 USDC → 秒级结算 → 无需人工</p>
+      </div>
+      <div class="glass-card" style="padding:24px;">
+        <div style="font-size:13px;color:#D4AF37;font-weight:600;margin-bottom:8px;">Google A2A协议</div>
+        <p class="body-text" style="font-size:13px;">让AI Agent原生处理链上稳定币支付，Coinbase + 以太坊基金会合作</p>
+      </div>
+      <div class="glass-card" style="padding:24px;">
+        <div style="font-size:13px;color:#D4AF37;font-weight:600;margin-bottom:8px;">TunaPay方向</div>
+        <p class="body-text" style="font-size:13px;">Agentic AI智能分配资金、AI Agent自动执行跨境结算和风控</p>
+      </div>
+      <div class="glass-card" style="padding:24px;">
+        <div style="font-size:13px;color:#D4AF37;font-weight:600;margin-bottom:8px;">港府AI拨款</div>
+        <p class="body-text" style="font-size:13px;">2026/27财政预算案：5000万港元全民AI培训，政策级推动AI应用落地</p>
+      </div>
+    </div>
+    <div class="gold-quote animate-in delay-3">
+      Web3时代你需要懂钱包，Web4时代你只需要告诉Agent你要什么。<br>
+      A2A（Agent-to-Agent）支付，才是离火九运里链上经济的<span style="color:#E8C97A;">真正基础设施</span>。
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 16: 算账清单 ============ -->
+<section class="slide" id="slide-16" data-title="算账清单">
+  <div class="slide-inner">
+    <span class="tag animate-in">穿越周期</span>
+    <h2 class="title-large animate-in delay-1" style="margin-top:20px;">
+      世界是潮起潮落的
+    </h2>
+    <p class="body-text animate-in delay-2" style="margin-top:8px;color:#B8A089;font-size:14px;">
+      扩张来临前准备加杠杆且不加崩，寒冬来临前提前去杠杆，在牌桌上坚韧不拔地完成死去选手的送终，挺过周期。
+    </p>
+    <div style="margin-top:28px;" class="animate-in delay-3" id="checkList">
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">你的客户是谁？他们为什么持续付钱？</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">你的收入来源能不能脱离"发币"独立存在？</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">你的AI到底省了几个人、省了多少钱？</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">你的业务链条能不能自己闭环？</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">你能不能在牌桌上完成死去选手的送终，挺过周期？</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">你的项目是离火九运里的"虚火"还是"实火"？</div>
+      </div>
+    </div>
+    <div class="animate-in delay-4" style="margin-top:28px;display:flex;flex-direction:column;gap:8px;">
+      <p class="body-text" style="font-size:15px;color:#D4AF37;">在生意场上，这叫<span style="font-weight:700;">不下牌桌</span></p>
+      <p class="body-text" style="font-size:15px;color:#E8C97A;">在投资领域，这叫<span style="font-weight:700;">穿越周期</span></p>
+      <p class="body-text" style="font-size:15px;color:#C77D4A;">在B圈和A股，这是<span style="font-weight:700;">庄家和韭菜</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 17: 一句话 ============ -->
+<section class="slide slide-bg slide-bg-light" id="slide-17" data-title="一句话" style="background-image:url('./assets/luxury-hk-night.jpg');">
+  <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(212,175,55,0.1),transparent);top:30%;left:40%"></div>
+  <div class="slide-inner" style="text-align:center;">
+    <h2 class="title-huge animate-in" style="line-height:1.2;">
+      别再盯着<br>传统进出口数据了
+    </h2>
+    <p class="subtitle animate-in delay-1" style="max-width:750px;margin:28px auto 0;font-size:clamp(15px,1.4vw,19px);">
+      这波真正的财富转移，根本不是用麻袋扛的。<br>
+      谁先看懂<span class="highlight">合规链上结算的底层逻辑</span>，<br>
+      就比别人多拿一张下一轮财富分配的船票。
+    </p>
+    <div class="animate-in delay-2" style="margin-top:48px;">
+      <p class="body-text" style="color:#D4AF37;font-size:16px;">春江水暖鸭先知。离火九运，脱虚向实。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 18: 结尾 ============ -->
+<section class="slide slide-bg slide-bg-light" id="slide-18" data-title="结尾" style="background-image:url('./assets/luxury-hk-night.jpg');">
+  <div class="halo" style="top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.15;width:400px;height:400px;"></div>
+  <div class="slide-inner" style="text-align:center;">
+    <h2 class="title-huge animate-in">
+      2026年还能留下来的
+    </h2>
+    <p class="title-mid animate-in delay-1" style="color:#B8A089;margin-top:16px;">
+      不是最会讲故事的<br>
+      而是<span class="gradient-text">最会算账的</span>
+    </p>
+    <div class="animate-in delay-2" style="margin-top:48px;">
+      <p class="body-text" style="color:rgba(212,175,55,0.4);font-size:15px;letter-spacing:6px;">故事讲完了，开始算账</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 19: 谢谢 ============ -->
+<section class="slide slide-bg slide-bg-light" id="slide-19" data-title="谢谢" style="background-image:url('./assets/luxury-hk-golden.jpg');">
+  <div class="bg-glow" style="width:500px;height:500px;background:radial-gradient(circle,rgba(212,175,55,0.08),transparent);top:30%;left:40%"></div>
+  <div class="slide-inner" style="text-align:center;">
+    <h2 class="title-huge animate-in" style="font-size:clamp(56px,8vw,100px);">
+      <span class="gradient-text">谢谢</span>
+    </h2>
+    <p class="body-text animate-in delay-1" style="margin-top:24px;color:#B8A089;font-size:15px;">
+      欢迎来怼 | 关起门来算账，比在外面讲故事有用
+    </p>
+    <div class="animate-in delay-2" style="margin-top:48px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
+      <span class="tag">元宇宙公主</span>
+      <span class="tag">TunaPay</span>
+      <span class="tag">泰山科技集团</span>
+      <span class="tag">TUNA RWA</span>
+    </div>
+    <div class="animate-in delay-3" style="margin-top:20px;">
+      <a href="https://tunapay.ai" target="_blank" rel="noopener noreferrer" style="color:#D4AF37;font-size:14px;text-decoration:none;">tunapay.ai</a>
+    </div>
+  </div>
+</section>
+
+<!-- Perplexity Footer -->
+<div class="pplx-footer">
+  <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+</div>
+
+<script>
+// ============ CURSOR ============
+const cursor = document.getElementById('cursor');
+const cursorDot = document.getElementById('cursorDot');
+let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  cursorDot.style.left = mouseX + 'px';
+  cursorDot.style.top = mouseY + 'px';
+});
+
+function animateCursor() {
+  cursorX += (mouseX - cursorX) * 0.15;
+  cursorY += (mouseY - cursorY) * 0.15;
+  cursor.style.left = cursorX + 'px';
+  cursor.style.top = cursorY + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Hover effect on interactive elements
+document.querySelectorAll('a, .glass-card, .check-item, .nav-dot, .cycle-node, .tag').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+});
+
+// ============ NAV DOTS ============
+const slides = document.querySelectorAll('.slide');
+const navDotsContainer = document.getElementById('navDots');
+const pageIndicator = document.getElementById('pageIndicator');
+const titles = [];
+
+slides.forEach((slide, i) => {
+  const title = slide.dataset.title || `页 ${i + 1}`;
+  titles.push(title);
+  const dot = document.createElement('div');
+  dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+  dot.innerHTML = `<span class="tooltip">${title}</span>`;
+  dot.addEventListener('click', () => {
+    slide.scrollIntoView({ behavior: 'smooth' });
+  });
+  dot.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+  dot.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+  navDotsContainer.appendChild(dot);
+});
+
+// ============ SCROLL OBSERVER ============
+let currentSlide = 0;
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const idx = Array.from(slides).indexOf(entry.target);
+      currentSlide = idx;
+      // Update nav dots
+      document.querySelectorAll('.nav-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === idx);
+      });
+      // Update page indicator
+      pageIndicator.textContent = `${idx + 1} / ${slides.length}`;
+      // Trigger slide animations
+      triggerSlideAnimations(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+slides.forEach(s => observer.observe(s));
+
+// ============ KEYBOARD NAV ============
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') {
+    e.preventDefault();
+    if (currentSlide < slides.length - 1) {
+      slides[currentSlide + 1].scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+    e.preventDefault();
+    if (currentSlide > 0) {
+      slides[currentSlide - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  if (e.key === 'Home') { e.preventDefault(); slides[0].scrollIntoView({ behavior: 'smooth' }); }
+  if (e.key === 'End') { e.preventDefault(); slides[slides.length - 1].scrollIntoView({ behavior: 'smooth' }); }
+});
+
+// ============ SLIDE ANIMATIONS ============
+const animatedSlides = new Set();
+
+function triggerSlideAnimations(slide) {
+  const slideId = slide.id;
+  if (animatedSlides.has(slideId)) return;
+  animatedSlides.add(slideId);
+
+  // Slap items (Slide 3)
+  if (slideId === 'slide-3') {
+    const items = slide.querySelectorAll('.slap-item');
+    items.forEach((item) => {
+      const delay = parseInt(item.dataset.delay) || 0;
+      setTimeout(() => item.classList.add('visible'), delay);
+    });
+  }
+
+  // Bullet items
+  const bullets = slide.querySelectorAll('.bullet-item');
+  bullets.forEach((b, i) => {
+    setTimeout(() => b.classList.add('visible'), 200 + i * 150);
+  });
+}
+
+// ============ CHECKBOX ============
+function toggleCheck(el) {
+  el.classList.toggle('checked');
+}
+
+// ============ INITIAL ============
+// Trigger first slide animation
+triggerSlideAnimations(slides[0]);
+
+// Touch/mobile: show default cursor
+if ('ontouchstart' in window) {
+  cursor.style.display = 'none';
+  cursorDot.style.display = 'none';
+  document.body.style.cursor = 'auto';
+}
+</script>
+</body>
+</html>
